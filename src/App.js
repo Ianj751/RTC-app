@@ -1,20 +1,21 @@
 import React from 'react';
+import {app} from './fireconfig'
 import { SignIn } from './Components/SignIn';
 import './App.css';
-import {app} from './fireconfig'
-
 
 function App() {
+  
   if(!app){
     return <div>Error Initializing firebase</div>;
   }
+  else{
   return (
    <>
    <NavBar />
    <SignIn />
-   <p>pawbfabkjgnajlgnbkr</p>
    </>
   );
+  }
 }
 
 const NavBar = () => {
