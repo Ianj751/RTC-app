@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -9,16 +11,17 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyB3WxeA5b-XKtSj-54P4vlEFr-EqHYdJmo",
-  authDomain: "my-chat-app-1b908.firebaseapp.com",
-  databaseURL: "https://my-chat-app-1b908-default-rtdb.firebaseio.com",
-  projectId: "my-chat-app-1b908",
-  storageBucket: "my-chat-app-1b908.appspot.com",
-  messagingSenderId: "212881613250",
-  appId: "1:212881613250:web:01e264cc1e26991f2af65b",
-  measurementId: "G-Y7XGW72HZB"
+  apiKey: process.env.REACT_APP_API_KEY || 'mock_key',
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN || 'mock_key',
+  databaseURL: process.env.REACT_APP_DATABASE_URL || 'mock_key',
+  projectId: process.env.REACT_APP_PROJECT_ID || 'mock_key',
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET || 'mock_key',
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID || 'mock_key',
+  appId: process.env.REACT_APP_ID || 'mock_key',
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID || 'mock_key',
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+export const db = getFirestore(app);
